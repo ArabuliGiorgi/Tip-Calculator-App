@@ -9,7 +9,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-h1,p{
+h1,p,input,button{
   font-family: "Space Mono", serif;
 }
 body{
@@ -18,4 +18,8 @@ body{
 #root{
   width: 100%;
   min-height: 100vh;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
