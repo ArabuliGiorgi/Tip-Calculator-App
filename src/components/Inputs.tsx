@@ -11,7 +11,7 @@ export default function Inputs() {
     if(state.tip === "" && tip !== "C"){
       setTip("");
     }
-  }, [state.bill, state.tip, state.people]);
+  }, [state.bill, state.tip, state.people, dispatch, tip]);
 
   function handleTip(str: string){
     if(tip !== "C" && str === "C"){
@@ -38,8 +38,11 @@ export default function Inputs() {
         return;
       }
       if(Number(e.target.value) <= 0){
-        Number(e.target.value) === 0 ? dispatch({ type: "setPeopleError", payload: "Can't be zero" }) :
-        dispatch({ type: "setPeopleError", payload: "Can't be negative" });
+        if (Number(e.target.value) === 0) {
+          dispatch({ type: "setPeopleError", payload: "Can't be zero" });
+        } else {
+          dispatch({ type: "setPeopleError", payload: "Can't be negative" });
+        }
       }else{
         dispatch({ type: "setPeopleError", payload: "" });
       }

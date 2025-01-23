@@ -57,7 +57,7 @@ const myContext = createContext<{
     dispatch: () => {} 
 });
 
-export default function myContextProvider({ children }: { children: React.ReactNode }) {
+export default function MyContextProvider({ children }: { children: React.ReactNode }) {
     const [state, dispatch] = useReducer(reducer, initialState);
     
     return (
